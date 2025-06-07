@@ -4656,7 +4656,7 @@ bool CChar::ShoveCharAtPosition(CPointMap const& ptDst, ushort *uiStaminaRequire
                 if ((g_Cfg.m_iRevealFlags & REVEALF_OSILIKEPERSONALSPACE))
                 {
                     // OSILIKEPERSONALSPACE flag block the reveal but DEFMSG_HIDING_STUMBLE_OSILIKE is send. To avoid it, simply use return 1 in @PERSONALSPACE
-                    strncpy(pszMsg, g_Cfg.GetDefaultMsg(DEFMSG_HIDING_STUMBLE_OSILIKE), Str_TempLength());
+                    Str_CopyLimitNull(pszMsg, g_Cfg.GetDefaultMsg(DEFMSG_HIDING_STUMBLE_OSILIKE), Str_TempLength());
                 }
                 else
                 {

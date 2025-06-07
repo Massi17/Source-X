@@ -97,14 +97,14 @@ lpctstr CServerMapBlockingState::GetTileName( dword dwID )	// static
 	tchar * pStr = Str_GetTemp();
 	if ( dwID < TERRAIN_QTY )
 	{
-		const CUOTerrainInfo land( (TERRAIN_TYPE)dwID );
-		strncpy( pStr, land.m_name, Str_TempLength() );
+               const CUOTerrainInfo land( (TERRAIN_TYPE)dwID );
+               Str_CopyLimitNull(pStr, land.m_name, Str_TempLength());
 	}
 	else
 	{
-		dwID -= TERRAIN_QTY;
-		const CUOItemInfo item((ITEMID_TYPE)dwID);
-		strncpy( pStr, item.m_name, Str_TempLength());
+               dwID -= TERRAIN_QTY;
+               const CUOItemInfo item((ITEMID_TYPE)dwID);
+               Str_CopyLimitNull(pStr, item.m_name, Str_TempLength());
 	}
 	return pStr;
 }

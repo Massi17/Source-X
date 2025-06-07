@@ -129,7 +129,7 @@ bool CRegion::MakeRegionDefname()
     lpctstr ptcKey = nullptr;	// auxiliary, the key of a similar CVarDef, if any found
     tchar * pbuf = Str_GetTemp();
     tchar * pszDef = pbuf + 2;
-    strncpy(pbuf, "a_", Str_TempLength());
+    Str_CopyLimitNull(pbuf, "a_", Str_TempLength());
 
     lpctstr pszName = GetName();
     GETNONWHITESPACE( pszName );
